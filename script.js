@@ -5,6 +5,7 @@ const removeColumn = document.getElementById('remove-column');
 const colorSelector = document.getElementById('color-selector');
 const colorDisplayer = document.getElementById('display-color');
 const uncoloredFiller = document.getElementById('fill-uncolored');
+const filler = document.getElementById('fill-all');
 
 let color = '';
 function selectColor() {
@@ -80,6 +81,17 @@ uncoloredFiller.addEventListener('click', () => {
     for (let i = 0; i < cells.length; i++) {
         console.log(cells[i].style.backgroundColor);
         if (!cells[i].style.backgroundColor && color) {
+            cells[i].style = `background-color: ${color}`;
+        }
+    }
+})
+
+filler.addEventListener('click', () => {
+    const cells = document.querySelectorAll('.item');
+    console.log(cells);
+    for (let i = 0; i < cells.length; i++) {
+        console.log(cells[i].style.backgroundColor);
+        if (color) {
             cells[i].style = `background-color: ${color}`;
         }
     }
