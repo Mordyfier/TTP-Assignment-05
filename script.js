@@ -6,6 +6,7 @@ const colorSelector = document.getElementById('color-selector');
 const colorDisplayer = document.getElementById('display-color');
 const uncoloredFiller = document.getElementById('fill-uncolored');
 const filler = document.getElementById('fill-all');
+const clearAll = document.getElementById('clear-all');
 
 let color = '';
 function selectColor() {
@@ -77,9 +78,7 @@ removeColumn.addEventListener('click', () => {
 
 uncoloredFiller.addEventListener('click', () => {
     const cells = document.querySelectorAll('.item');
-    console.log(cells);
     for (let i = 0; i < cells.length; i++) {
-        console.log(cells[i].style.backgroundColor);
         if (!cells[i].style.backgroundColor && color) {
             cells[i].style = `background-color: ${color}`;
         }
@@ -88,11 +87,18 @@ uncoloredFiller.addEventListener('click', () => {
 
 filler.addEventListener('click', () => {
     const cells = document.querySelectorAll('.item');
-    console.log(cells);
     for (let i = 0; i < cells.length; i++) {
-        console.log(cells[i].style.backgroundColor);
         if (color) {
             cells[i].style = `background-color: ${color}`;
+        }
+    }
+})
+
+clearAll.addEventListener('click', () => {
+    const cells = document.querySelectorAll('.item');
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].style.backgroundColor) {
+            cells[i].style = `background-color: none`;
         }
     }
 })
