@@ -4,6 +4,7 @@ const addColumn = document.getElementById('add-column');
 const removeColumn = document.getElementById('remove-column');
 const colorSelector = document.getElementById('color-selector');
 const colorDisplayer = document.getElementById('display-color');
+const uncoloredFiller = document.getElementById('fill-uncolored');
 
 let color = '';
 function selectColor() {
@@ -26,6 +27,7 @@ origin.addEventListener('click', () => {
 addRow.addEventListener('click', () => {
     for (let i = 0; i < grid.children.length; i++) {
         const newCell = grid.children[0].children[0].cloneNode(true);
+        newCell.style = 'none';
         grid.children[i].appendChild(newCell);
         newCell.addEventListener('click', () => {
             if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
@@ -50,9 +52,9 @@ removeRow.addEventListener('click', () => {
 
 addColumn.addEventListener('click', () => {
     const newColumn = grid.children[0].cloneNode(true);
-    grid.appendChild(newColumn);
     for (let i = 0; i < newColumn.children.length; i++) {
         const newCell = newColumn.children[i];
+        newCell.style = 'none';
         newCell.addEventListener('click', () => {
             if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
                 newCell.style.backgroundColor = color;
@@ -61,6 +63,7 @@ addColumn.addEventListener('click', () => {
             }
         });
     }
+    grid.appendChild(newColumn);
 });
 
 removeColumn.addEventListener('click', () => {
@@ -71,4 +74,13 @@ removeColumn.addEventListener('click', () => {
     }
 });
 
-
+uncoloredFiller.addEventListener('click', () => {
+    const cells = document.querySelectorAll('.item');
+    console.log(cells);
+    for (let i = 0; i < cells.length; i++) {
+        console.log(cells[i].style.backgroundColor);
+        if (!cells[i].style.backgroundColor && color) {
+            cells[i].style = `background-color: ${color}`;
+        }
+    }
+})
