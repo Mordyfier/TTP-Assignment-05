@@ -16,6 +16,7 @@
         <form id="selector">
             <select name="color" id="color-selector" onchange="selectColor()">
                 <option value="" selected="selected">Select colour</option>
+                <option value="white" >No colour</option>
                 <option value="red">Red</option>
                 <option value="orange">Orange</option>
                 <option value="yellow">Yellow</option>
@@ -25,6 +26,8 @@
                 <option value="steelblue">Steelblue</option>
                 <option value="hotpink">Hot Pink</option>
                 <option value="purple">Purple</option>
+                <option value="brown">Brown</option>
+                <option value="black">Black</option>
             </select>
         </form>
         <h3 id="display-color"></h3>
@@ -34,7 +37,7 @@
     </div>
     <grid class="grid" id="grid">
         <column class="grid-column" id="grid-column">
-            <div class="item"></div>
+            <div draggable="false" class="item"></div>
         </column>
     </grid>
     <script src="script.js"></script>
