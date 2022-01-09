@@ -14,19 +14,26 @@ function selectColor() {
 
 const grid = document.getElementById('grid');
 const origin = document.querySelector('.item');
-// origin.addEventListener('click', () => {
-//     if (!origin.style.backgroundColor && color) {
-//         origin.style.backgroundColor = color;
-//     } else {
-//         origin.style = 'none';
-//     }
-// });
+origin.addEventListener('click', () => {
+    if ((!origin.style.backgroundColor || origin.style.backgroundColor !== color) && color) {
+        origin.style.backgroundColor = color;
+    } else {
+        origin.style = 'none';
+    }
+});
 
 
 addRow.addEventListener('click', () => {
     for (let i = 0; i < grid.children.length; i++) {
         const newCell = grid.children[0].children[0].cloneNode(true);
         grid.children[i].appendChild(newCell);
+        newCell.addEventListener('click', () => {
+            if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
+                newCell.style.backgroundColor = color;
+            } else {
+                newCell.style = 'none';
+            }
+        });
     }
 });
 
@@ -44,6 +51,16 @@ removeRow.addEventListener('click', () => {
 addColumn.addEventListener('click', () => {
     const newColumn = grid.children[0].cloneNode(true);
     grid.appendChild(newColumn);
+    for (let i = 0; i < newColumn.children.length; i++) {
+        const newCell = newColumn.children[i];
+        newCell.addEventListener('click', () => {
+            if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
+                newCell.style.backgroundColor = color;
+            } else {
+                newCell.style = 'none';
+            }
+        });
+    }
 });
 
 removeColumn.addEventListener('click', () => {
