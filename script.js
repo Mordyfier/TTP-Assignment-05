@@ -1,8 +1,11 @@
 const addRow = document.getElementById('add-row');
 const removeRow = document.getElementById('remove-row');
 const addColumn = document.getElementById('add-column');
+const removeColumn = document.getElementById('remove-column');
+
 
 const grid = document.getElementById('grid');
+
 
 addRow.addEventListener('click', () => {
     for (let i = 0; i < grid.children.length; i++) {
@@ -27,5 +30,15 @@ addColumn.addEventListener('click', () => {
     const newColumn = grid.children[0].cloneNode(true);
     console.log(grid.children)
     grid.appendChild(newColumn);
-})
+});
 
+removeColumn.addEventListener('click', () => {
+    const columns = grid.children;
+    if (columns.length > 1) {
+        const lastChild = columns[columns.length-1];
+        grid.removeChild(lastChild);
+    }
+});
+
+const cells = document.querySelectorAll('.item');
+console.log(cells);
