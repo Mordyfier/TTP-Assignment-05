@@ -17,13 +17,41 @@ function selectColor() {
 
 const grid = document.getElementById('grid');
 const origin = document.querySelector('.item');
-origin.addEventListener('click', () => {
-    if ((!origin.style.backgroundColor || origin.style.backgroundColor !== color) && color) {
-        origin.style.backgroundColor = color;
-    } else {
-        origin.style = 'none';
+
+
+let mouseDownID = -1;
+let isMouseDown = false;
+document.addEventListener('mousedown', () => {
+    document.querySelector('.item:hover').style.backgroundColor = color;
+    isMouseDown = true;
+    mouseDown();
+});
+function mouseDown() {
+    if (mouseDownID === -1) {
+        mouseDownID = setInterval(setHoveredColor, 10);
+    }
+}
+document.addEventListener("mouseup", () => {
+    if(mouseDownID !== -1) {
+        clearInterval(mouseDownID);
+        mouseDownID = -1;
     }
 });
+
+document.body.onmouseup = () => {
+    isMouseDown = false;
+}
+
+function setHoveredColor () {
+    if (!isMouseDown && !document.querySelector(':hover') && mouseDownID !== -1) {
+        clearInterval(mouseDownID);
+        mouseDownID = -1;
+    }
+    const cell = document.querySelector('.item:hover');
+    if (cell && cell.style.backgroundColor !== color && color) {
+        cell.style = `background-color: ${color}`;
+    }
+}
 
 
 addRow.addEventListener('click', () => {
@@ -31,13 +59,6 @@ addRow.addEventListener('click', () => {
         const newCell = grid.children[0].children[0].cloneNode(true);
         newCell.style = 'none';
         grid.children[i].appendChild(newCell);
-        newCell.addEventListener('click', () => {
-            if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
-                newCell.style.backgroundColor = color;
-            } else {
-                newCell.style = 'none';
-            }
-        });
     }
 });
 
@@ -57,13 +78,6 @@ addColumn.addEventListener('click', () => {
     for (let i = 0; i < newColumn.children.length; i++) {
         const newCell = newColumn.children[i];
         newCell.style = 'none';
-        newCell.addEventListener('click', () => {
-            if ((!newCell.style.backgroundColor || newCell.style.backgroundColor !== color) && color) {
-                newCell.style.backgroundColor = color;
-            } else {
-                newCell.style = 'none';
-            }
-        });
     }
     grid.appendChild(newColumn);
 });
