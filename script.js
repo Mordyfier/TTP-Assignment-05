@@ -1,5 +1,6 @@
 const addRow = document.getElementById('add-row');
 const removeRow = document.getElementById('remove-row');
+const addColumn = document.getElementById('add-column');
 
 const grid = document.getElementById('grid');
 
@@ -21,4 +22,10 @@ removeRow.addEventListener('click', () => {
         }
     }
 });
+
+addColumn.addEventListener('click', () => {
+    const newColumn = grid.children[0].cloneNode(true);
+    console.log(grid.children)
+    grid.appendChild(newColumn);
+})
 
