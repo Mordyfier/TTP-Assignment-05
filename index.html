@@ -13,6 +13,21 @@
         <button type="button" id="remove-row">Remove Row</button>
         <button type="button" id="add-column">Add Column</button>
         <button type="button" id="remove-column">Remove Column</button>
+        <form id="selector">
+            <select name="color" id="color-selector" onchange="selectColor()">
+                <option value="" selected="selected">Select colour</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="limegreen">Lime Green</option>
+                <option value="cyan">Cyan</option>
+                <option value="blue">Blue</option>
+                <option value="steelblue">Steelblue</option>
+                <option value="hotpink">Hot Pink</option>
+                <option value="purple">Purple</option>
+            </select>
+        </form>
+        <h3 id="display-color"></h3>
     </div>
     <grid class="grid" id="grid">
         <column class="grid-column" id="grid-column">

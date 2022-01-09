@@ -1,6 +1,9 @@
 body {
     margin: none;
 }
+.buttons {
+    display: flex;
+}
 .grid {
     display: flex;
 }

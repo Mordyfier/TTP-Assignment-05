@@ -2,15 +2,30 @@ const addRow = document.getElementById('add-row');
 const removeRow = document.getElementById('remove-row');
 const addColumn = document.getElementById('add-column');
 const removeColumn = document.getElementById('remove-column');
+const colorSelector = document.getElementById('color-selector');
+const colorDisplayer = document.getElementById('display-color');
 
+let color = '';
+function selectColor() {
+    color = colorSelector.value;
+    colorDisplayer.textContent = colorSelector.value;
+    colorSelector.value = "";
+}
 
 const grid = document.getElementById('grid');
+const origin = document.querySelector('.item');
+// origin.addEventListener('click', () => {
+//     if (!origin.style.backgroundColor && color) {
+//         origin.style.backgroundColor = color;
+//     } else {
+//         origin.style = 'none';
+//     }
+// });
 
 
 addRow.addEventListener('click', () => {
     for (let i = 0; i < grid.children.length; i++) {
-        const newCell = document.createElement("div");
-        newCell.className = "item";
+        const newCell = grid.children[0].children[0].cloneNode(true);
         grid.children[i].appendChild(newCell);
     }
 });
@@ -28,7 +43,6 @@ removeRow.addEventListener('click', () => {
 
 addColumn.addEventListener('click', () => {
     const newColumn = grid.children[0].cloneNode(true);
-    console.log(grid.children)
     grid.appendChild(newColumn);
 });
 
@@ -40,5 +54,4 @@ removeColumn.addEventListener('click', () => {
     }
 });
 
-const cells = document.querySelectorAll('.item');
-console.log(cells);
+
