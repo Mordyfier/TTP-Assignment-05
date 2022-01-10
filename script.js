@@ -39,7 +39,6 @@ function mouseDown() {
     if (mouseDownID === -1) {
         mouseDownID = setInterval(setHoveredColor, 10);
     }
-    preventDe;
 }
 
 document.addEventListener("mouseup", () => {
