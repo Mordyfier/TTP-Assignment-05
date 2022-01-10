@@ -21,6 +21,8 @@ const grid = document.getElementById('grid');
 /* -------------------- Core colour changing sequence -------------------- */
 /* User Story #10 - click and hold allows for colouring cells along the path from starting cell to ending cell
 
+`mousedown` loop based on this answer: https://stackoverflow.com/a/15505418
+
 The core idea here is as follows:
 - `mousedown` event sets off the timeout interval which checks (every 10ms - rather fast, but it seems to work fine) through
 setHoveredColor() whether the mouse pointer is currently hovering over a cell of a different colour than the one set
