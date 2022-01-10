@@ -1,6 +1,6 @@
 body {
     margin: none;
-    background-color: darkgrey;
+    background-color: #333;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -24,25 +24,29 @@ body {
     font-size: 15px;
     word-spacing: 3px;
     letter-spacing: 1px;
-    background-color: steelblue;
+    background-color: rgb(46, 101, 146);
     color: whitesmoke;
 }
 
 #color-selector {
-    border: 1px black solid;
+    border: none;
     border-radius: 5px;
     max-width: 500px;
     height: 40px;
     padding: 0 20px;
-    background-color: #aaaaaa;
+    background-color: #777;
     color: white;
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     font-size: 15px;
-    word-spacing: 3px;
     letter-spacing: 1px;
     margin-right: 10px;
-} 
+}
+
+#color-selector > option {
+    color: var(value);
+    font-size: 18px;
+}
 
 .grid {
     display: flex;

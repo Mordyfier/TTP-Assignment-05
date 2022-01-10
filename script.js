@@ -136,9 +136,7 @@ clearAll.addEventListener('click', () => {
     // removes colour from all cells by colouring them white
     const cells = document.querySelectorAll('.item');
     for (let i = 0; i < cells.length; i++) {
-        if (cells[i].style.backgroundColor) {
-            cells[i].style = `background-color: white`;
-        }
+        cells[i].style = `background-color: white`;
     }
 })
 
