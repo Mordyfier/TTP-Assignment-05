@@ -1,21 +1,62 @@
 body {
     margin: none;
+    background-color: darkgrey;
+    font-family: 'Raleway', sans-serif;
 }
-.buttons {
+
+.controls {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 100px;
 }
+
+.controls > button {
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    max-width: 500px;
+    height: 40px;
+    padding: 0 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    background-color: steelblue;
+    color: whitesmoke;
+}
+
+#color-selector {
+    border: 1px black solid;
+    border-radius: 5px;
+    max-width: 500px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #aaaaaa;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    margin-right: 10px;
+} 
+
 .grid {
     display: flex;
+    margin-left: 100px;
+    user-select: none; /* disables dragging of the grid parent which messed with drag-colouring */
 }
-/* .grid-column {
-    display: flex;
-    flex-direction: column;
-} */
+
+
 .item {
-    border: black 1px solid;
-    border-radius: 4px;
-    width: 48px;
-    height: 48px;
-    margin-left: 5px;
-    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 75px;
+    height: 75px;
+    margin-left: 3px;
+    margin-top: 3px;
+    background-color: white;
 }
