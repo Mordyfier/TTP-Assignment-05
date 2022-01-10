@@ -35,19 +35,21 @@ Since a click on a single cell is nothing more than a mousedown-mouseup cycle, t
 a resolution of the colouring on click feature (#6), rendering dedicated `click` on 
 each node unnecessary. (historical code handling these events is included in comments at the end of the file) */
 
+function setHoveredColor () {
+    const cell = document.querySelector('.item:hover');
+    if (cell && cell.style.backgroundColor !== color) {
+        // if the element under the mouse pointer is a cell and not of the currently selected colour:
+        cell.style = `background-color: ${color}`;
+    }
+}
 
 let mouseDownID = -1; // duplicate timeout loop prevention
 document.addEventListener('mousedown', () => {
     // begin "loop" on `mousedown`
-    mouseDown();
-});
-
-function mouseDown() {
-    // if no other loops are ongoing, start interval
     if (mouseDownID === -1) {
         mouseDownID = setInterval(setHoveredColor, 10);
     }
-}
+});
 
 document.addEventListener("mouseup", () => {
     // end the loop on `mouseup` if there is one ongoing
@@ -57,13 +59,6 @@ document.addEventListener("mouseup", () => {
     }
 });
 
-function setHoveredColor () {
-    const cell = document.querySelector('.item:hover');
-    if (cell && cell.style.backgroundColor !== color) {
-        // if the element under the mouse pointer is a cell and not of the currently selected colour:
-        cell.style = `background-color: ${color}`;
-    }
-}
 
 
 // Button listeners:
