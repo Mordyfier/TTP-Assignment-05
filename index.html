@@ -11,12 +11,14 @@
     <title>DOM Challenge III</title>
 </head>
 <body>
+    <!-- Control Panel -->
     <div class="controls">
         <button type="button" id="add-row">Add Row</button>
         <button type="button" id="remove-row">Remove Row</button>
         <button type="button" id="add-column">Add Column</button>
         <button type="button" id="remove-column">Remove Column</button>
         <select name="color" id="color-selector" onchange="selectColor()">
+            <!-- Colour selectors in the dropdown menu. Adding more colours as simple as adding another <option> -->
             <option value="" selected="selected">Select Colour</option>
             <option value="maroon">Maroon</option>
             <option value="red">Red</option>
@@ -44,6 +46,7 @@
         <button type="button" id="fill-all">Fill All</button>
         <button type="button" id="clear-all">Clear All</button>
     </div>
+    <!-- Core grid. Initialized with one cell which is then cloned by JavaScript. -->
     <grid class="grid" id="grid">
         <column class="grid-column" id="grid-column">
             <div draggable="false" class="item"></div>
