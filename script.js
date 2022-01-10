@@ -28,7 +28,7 @@ Since a click on a single cell completes the mousedown-mouseup cycle,
 contained within these lines is also a resolution of the colouring on click feature (#6), rendering dedicated `click` on 
 each node unnecessary. */
 
-let mouseDownID = -1; // duplicate timeout loops prevention
+let mouseDownID = -1; // duplicate timeout loop prevention
 document.addEventListener('mousedown', () => {
     // begin "loop" on `mousedown`
     mouseDown();
@@ -52,7 +52,7 @@ document.addEventListener("mouseup", () => {
 function setHoveredColor () {
     const cell = document.querySelector('.item:hover');
     if (cell && cell.style.backgroundColor !== color) {
-        // if the element under the pointer is a cell and it's not of the currently selected colour:
+        // if the element under the mouse pointer is a cell and not of the currently selected colour:
         cell.style = `background-color: ${color}`;
     }
 }
@@ -69,7 +69,7 @@ addRow.addEventListener('click', () => {
 });
 
 removeRow.addEventListener('click', () => {
-    // deletes the last cell in each column, provided it is not the only cell remaining
+    // deletes the last cell in each column (provided it is not the only one remaining)
     const columns = grid.children;
     if (columns[0].children.length > 1) {
         for (let i = 0; i < columns.length; i++) {
@@ -91,7 +91,7 @@ addColumn.addEventListener('click', () => {
 });
 
 removeColumn.addEventListener('click', () => {
-    // deletes the last column
+    // deletes the last column (provided it is not the only one remaining)
     const columns = grid.children;
     if (columns.length > 1) {
         const lastChild = columns[columns.length-1];
