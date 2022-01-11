@@ -44,7 +44,6 @@ body {
 }
 
 #color-selector > option {
-    color: var(value);
     font-size: 18px;
     font-weight: 500;
 }
