@@ -8,3 +8,7 @@ Objective:
   - adding and removing columns
   - colouring the cells directly, at the click of a button (unfilled and all), or by dragging their mouse
   - reverting any colour manipulation with a 'Clear' button
+
+## Sample Functionality
+
+![gif](https://github.com/Mordyfier/TTP-Assignment-05/blob/main/img/grid.gif)
